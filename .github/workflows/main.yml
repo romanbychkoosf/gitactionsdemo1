@@ -17,9 +17,7 @@ jobs:
           mkdir sfdx-cli
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
           ./sfdx-cli/install
-      - name: Auth with the DevHub
+      - name: Auth with the Destination org
         run: 'sfdx force:auth:sfdxurl:store -f token.txt -a destinationOrg'
       - name: Push source
         run: 'sfdx force:source:deploy -l RunLocalTests -u destinationOrg -x manifest/package.xml'
-      - name: List orgs
-        run: 'sfdx force:org:list'
