@@ -20,8 +20,6 @@ jobs:
       - name: Auth with the DevHub
         run: 'sfdx force:auth:sfdxurl:store -f token.txt -a destinationOrg -d'
       - name: Push source
-        run: 'sfdx force:source:push -u destinationOrg'
+        run: 'sfdx force:source:deploy --checkonly '
       - name: List orgs
         run: 'sfdx force:org:list'
-      - name: Run tests
-        run: 'sfdx force:apex:test:run -u destinationOrg --resultformat human'
