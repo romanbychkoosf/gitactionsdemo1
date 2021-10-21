@@ -20,6 +20,6 @@ jobs:
       - name: Auth with the DevHub
         run: 'sfdx force:auth:sfdxurl:store -f token.txt -a destinationOrg'
       - name: Push source
-        run: 'sfdx force:source:deploy --checkonly -u destinationOrg -x /manifest/package.xml'
+        run: 'sfdx force:source:deploy --checkonly -u destinationOrg -x manifest/package.xml'
       - name: List orgs
         run: 'sfdx force:org:list'
