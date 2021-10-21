@@ -18,8 +18,8 @@ jobs:
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
           ./sfdx-cli/install
       - name: Auth with the DevHub
-        run: 'sfdx force:auth:sfdxurl:store -f token.txt -a destinationOrg -d'
+        run: 'sfdx force:auth:sfdxurl:store -f token.txt -a destinationOrg'
       - name: Push source
-        run: 'sfdx force:source:deploy --checkonly '
+        run: 'sfdx force:source:deploy --checkonly -u destinationOrg'
       - name: List orgs
         run: 'sfdx force:org:list'
