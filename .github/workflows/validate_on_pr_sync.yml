@@ -4,10 +4,10 @@ on:
   pull_request:
     branches:
       - master
-    types: [synchronize]
+    types: [opened,synchronize,reopened]
 
 jobs:
-  build:
+  validate:
 
     runs-on: ubuntu-latest
     
